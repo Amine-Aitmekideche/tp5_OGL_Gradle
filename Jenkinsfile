@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Sonar') { // Correction de la majuscule pour correspondre à la norme des sections
+        stage('sonar') { // Correction de la majuscule pour correspondre à la norme des sections
                     steps {
                         withSonarQubeEnv('sonar') {
                             sh './gradlew sonar'
