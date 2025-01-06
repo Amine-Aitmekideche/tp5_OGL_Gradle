@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-    }
+
         stage('Sonar') {
             steps {
                 withSonarQubeEnv('sonar') {
@@ -23,7 +23,8 @@ pipeline {
                 }
             }
         }
-//
+
+        }
 //         stage('Code Quality') {
 //             steps {
 //                 script {
