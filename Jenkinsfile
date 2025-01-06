@@ -4,14 +4,14 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './gradlew test --tests "acceptation.DeterminantCalculatorFeature"'
+                    sh './gradlew test --tests "acceptation.DerCalcfeature"'
                     sh './gradlew test'
                 }
             }
             post {
                 always {
                     junit 'build/test-results/test/*.xml'
-                    cucumber 'build/reports/cucumber/*.json'
+                    cucumber 'reports/example-report.json'
                 }
             }
         }
