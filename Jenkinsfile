@@ -16,14 +16,13 @@ pipeline {
             }
         }
 
-        stage('sonar') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                    sh './gradlew sonar'
-                }
-            }
+        stage('Sonar') { // Correction de la majuscule pour correspondre à la norme des sections
+                    steps {
+                        withSonarQubeEnv('sonar') {
+                            sh './gradlew sonar'
+                        }
+                    }
         }
-
     }
 //         stage('Code Quality') {
 //             steps {
