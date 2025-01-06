@@ -61,7 +61,7 @@ jacocoTestReport {
 //sonarQube
 sonar {
     properties {
-        property "sonar.projectKey", "projet1"
+        property "sonar.projectKey", "tp5"
         property "sonar.host.url", "http://197.140.142.82:9000"
         property "sonar.sources", "src/main/java"
         property "sonar.tests", "src/test/java"
