@@ -79,7 +79,6 @@ pipeline {
                 }
             }
         }
-// slackk
 //         stage('Slack Notification') {
 //             steps {
 //                 slackSend channel: '#tp5',
