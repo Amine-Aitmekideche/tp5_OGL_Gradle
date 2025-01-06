@@ -61,6 +61,26 @@ pipeline {
                 }
             }
         }
+        stage('Email Notification') {
+            steps {
+                script {
+                    currentBuild.result = currentBuild.result ?: 'SUCCESS'
+                    if (currentBuild.result == 'SUCCESS') {
+                        echo 'Sending success notifications...'
+                        mail to: 'lm_aitmekideche@esi.dz',
+                             subject: "Build Success: ",
+                             body: "The build and deployment for  was successful."
+                    } else {
+                        echo 'Sending failure notifications...'
+                        mail to: 'lm_aitmekideche@esi.dz',
+                             subject: "Build Failed: ",
+                             body: "The build for  failed. Check the logs for details."
+                    }
+                }
+            }
+        }
+
+
 
     }
 
