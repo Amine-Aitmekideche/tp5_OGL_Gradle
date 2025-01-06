@@ -24,6 +24,16 @@ pipeline {
                         }
                     }
         }
+        stage('Code Quality') {
+                    steps {
+                        script {
+                            def qualityGate = waitForQualityGate()
+                            if (qualityGate.status != 'OK') {
+                                error "Pipeline failed due to Quality Gate failure: ${qualityGate.status}"
+                            }
+                        }
+                    }
+        }
     }
 
 }
