@@ -16,13 +16,13 @@ pipeline {
             }
         }
     }
-//         stage('Sonar') {
-//             steps {
-//                 withSonarQubeEnv('sonar') {
-//                     sh './gradlew sonar'
-//                 }
-//             }
-//         }
+        stage('Sonar') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh './gradlew sonar'
+                }
+            }
+        }
 //
 //         stage('Code Quality') {
 //             steps {
