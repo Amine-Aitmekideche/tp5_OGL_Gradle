@@ -24,6 +24,7 @@ pipeline {
                         }
                     }
         }
+
         stage('Code Quality') {
                     steps {
                         script {
