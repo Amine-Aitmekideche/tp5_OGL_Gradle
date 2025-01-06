@@ -63,9 +63,24 @@ sonar {
     properties {
         property "sonar.projectKey", "projet1"
         property "sonar.host.url", "http://197.140.142.82:9000"
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests", "src/test/java"
+        property "sonar.login", "Amine"
+        property "sonar.password", "amine"
     }
 }
+//sonar {
 
+//    properties {
+//        property "sonar.projectKey", "mezenner-ci-cd"
+//        property "sonar.host.url", "http://sonarqube-custom:9000/"
+//        property "sonar.java.binaries", "build/classes/java/main"
+//        property "sonar.sources", "src/main/java"
+//        property "sonar.tests", "src/test/java"
+//        property "sonar.login", "admin"
+//        property "sonar.password", "Mezenner_2003"
+//    }
+//}
 //./gradlew javadoc.   === documentation
 
 publishing {
