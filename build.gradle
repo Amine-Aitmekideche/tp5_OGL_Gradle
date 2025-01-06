@@ -58,8 +58,6 @@ jacocoTestReport {
     }
 }
 
-
-
 //sonarQube
 sonar {
     properties {
