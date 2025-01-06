@@ -1,11 +1,8 @@
-Feature: Matrix
-  Background:
-    Given I have A Matrix
-
-  Scenario: Determinant
-    When I compute determinant of
-      | col1 | col2 | col3 |
-      | 1    | 2  | 3      |
-      | 4    | 5  | 6      |
-      | 7    | 8  | 12     |
-    Then The result of determinant is -9
+Feeature: Determinant calculator
+Scenario: Determinant of a 3x3 matrix
+Given I have the matrix
+| 1 | 2 | 3 |
+| 3 | 4 | 5 |
+| 6 | 7 | 8 |
+When I calculate the determinant
+Then the result should be 0

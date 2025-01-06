@@ -4,7 +4,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './gradlew test --tests "acceptation.DetCalcfeature"'
+                    sh './gradlew test --tests "ExampleTest"'
                     sh './gradlew test'
                 }
             }
