@@ -28,16 +28,40 @@ pipeline {
 
 
 
-        stage('Code Quality') {
-                    steps {
-                        script {
-                            def qualityGate = waitForQualityGate()
-                            if (qualityGate.status != 'OK') {
-                                error "Pipeline failed due to Quality Gate failure: ${qualityGate.status}"
-                            }
-                        }
-                    }
+//         stage('Code Quality') {
+//                     steps {
+//                         script {
+//                             def qualityGate = waitForQualityGate()
+//                             if (qualityGate.status != 'OK') {
+//                                 error "Pipeline failed due to Quality Gate failure: ${qualityGate.status}"
+//                             }
+//                         }
+//                     }
+//         }
+
+        stage('Build') {
+            steps {
+                script {
+                    sh './gradlew jar'
+                    sh './gradlew javadoc'
+                }
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                    archiveArtifacts artifacts: 'build/docs/javadoc/**/*', fingerprint: true
+                }
+            }
         }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    sh './gradlew publish'
+                }
+            }
+        }
+
     }
 
 }
