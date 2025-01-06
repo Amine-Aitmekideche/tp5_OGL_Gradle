@@ -21,6 +21,7 @@ pipeline {
                         withSonarQubeEnv('sonar') {
                             sh './gradlew sonar'
                         }
+
                     }
         }
     }
