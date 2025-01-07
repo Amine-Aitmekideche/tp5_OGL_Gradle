@@ -17,7 +17,7 @@ pipeline {
         }
 
 
-        stage('sonar') { // Correction de la majuscule pour correspondre à la norme des sections
+        stage('Code Analysis') { // Correction de la majuscule pour correspondre à la norme des sections
                     steps {
                         withSonarQubeEnv('sonar') {
                             sh './gradlew sonar'
@@ -87,6 +87,13 @@ pipeline {
 //                           message: ":rocket: *Deployment completed successfully with jenkess!* :tada:"
 //             }
 //         }
+stage('Slack Notification') {
+            steps {
+                script{
+                    sh './gradlew publish'
+                }
+            }
+        }
 
     }
 
