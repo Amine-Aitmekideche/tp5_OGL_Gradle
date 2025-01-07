@@ -9,7 +9,7 @@ public class Matrix {
 	public Matrix() {
 	}
 
-	public double[][] getData() {
+	public double[][] getData() {jhgefygsh
 		return data;
 	}
 
