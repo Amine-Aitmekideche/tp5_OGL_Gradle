@@ -69,7 +69,7 @@ pipeline {
                         echo 'Sending success notifications...'
                         mail to: 'lm_aitmekideche@esi.dz',
                              subject: "Build Success: ",
-                             body: "The build and deployment for  was successful."
+                             body: "The build and deployment form jenkiess  was successful."
                     } else {
                         echo 'Sending failure notifications...'
                         mail to: 'lm_aitmekideche@esi.dz',
@@ -90,7 +90,7 @@ pipeline {
 stage('Slack Notification') {
             steps {
                 script{
-                    sh './gradlew publish'
+                    sh './gradlew sendSlackNotification'
                 }
             }
         }
