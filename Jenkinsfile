@@ -87,7 +87,7 @@ pipeline {
 //                           message: ":rocket: *Deployment completed successfully with jenkess!* :tada:"
 //             }
 //         }
-
+//slack
 stage('Slack Notification') {
             steps {
                 script{
