@@ -81,24 +81,24 @@ pipeline {
         }
 
 //         slack
-//         stage('Slack Notification') {
-//             steps {
-//                 slackSend channel: '#tp5',
-//                           color: 'good',
-//                           message: ":rocket: *Deployment completed successfully with jenkess!* :tada:"
-//             }
-//         }
+        stage('Slack Notification') {
+            steps {
+                slackSend channel: '#tp5',
+                          color: 'good',
+                          message: ":rocket: *Deployment completed successfully with jenkess!* :tada:"
+            }
+        }
 
 
 
 //slack
-stage('Slack Notification') {
-            steps {
-                script{
-                    sh './gradlew sendSlackNotification'
-                }
-            }
-        }
+// stage('Slack Notification') {
+//             steps {
+//                 script{
+//                     sh './gradlew sendSlackNotification'
+//                 }
+//             }
+//         }
 
     }
 
