@@ -17,7 +17,7 @@ pipeline {
         }
 
 
-        stage('Code Analysis') { // Correction de la majuscule pour correspondre à la norme des sections
+        stage('Code Analysis') {
                     steps {
                         withSonarQubeEnv('sonar') {
                             sh './gradlew sonar'
@@ -33,7 +33,7 @@ pipeline {
                         script {
                             def qualityGate = waitForQualityGate()
                             if (qualityGate.status != 'OK') {
-                                error "Pipeline failed due to Quality Gate failure: ${qualityGate.status}"
+                                error "Pipeline failed a cause de code Quality: ${qualityGate.status}"
                             }
                         }
                     }
@@ -66,7 +66,7 @@ pipeline {
                 script {
                     currentBuild.result = currentBuild.result ?: 'SUCCESS'
                     if (currentBuild.result == 'SUCCESS') {
-                        echo 'Sending success notifications...'
+                        echo 'Build Success! Sending success notifications...'
                         mail to: 'lm_aitmekideche@esi.dz',
                              subject: "Build Success: ",
                              body: "The build and deployment form jenkiess  was successful."
@@ -74,7 +74,7 @@ pipeline {
                         echo 'Sending failure notifications...'
                         mail to: 'lm_aitmekideche@esi.dz',
                              subject: "Build Failed: ",
-                             body: "The build for  failed. Check the logs for details."
+                             body: "The build for  failed."
                     }
                 }
             }
@@ -85,21 +85,10 @@ pipeline {
         stage('Slack Notification') {
             steps {
                 slackSend channel: '#tp5',
-                          color: 'good',
                           message: ":rocket: *Deployment completed successfully with jenkess!* :tada:"
             }
         }
 
-
-
-//slack
-// stage('Slack Notification') {
-//             steps {
-//                 script{
-//                     sh './gradlew sendSlackNotification'
-//                 }
-//             }
-//         }
 
     }
 
